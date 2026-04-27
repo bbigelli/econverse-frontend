@@ -16,7 +16,12 @@
   }
 
   &__overlay {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
     width: 100%;
     height: 100%;
     display: flex;
@@ -82,7 +87,7 @@
 
     @media (max-width: 768px) {
       font-size: 18px;
-      
+
       strong {
         font-size: 28px;
       }

@@ -2,21 +2,21 @@
 .header__announcement {
   background: #ffffff;
   padding: 10px 0;
-  color: #9CA3AF;
+  color: #9ca3af;
   font-size: 13px;
-  
+
   &-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
-    
+
     @media (max-width: 768px) {
       justify-content: center;
       gap: 16px;
     }
-    
+
     @media (max-width: 640px) {
       flex-direction: column;
       gap: 12px;
@@ -28,17 +28,17 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  
+
   .highlight {
     color: #1100ff;
     font-weight: 600;
   }
-  
+
   .announcement__icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: #9CA3AF;
+    color: #9ca3af;
   }
 }
 
@@ -47,14 +47,14 @@
   background: #ffffff;
   padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  
+
   &-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
     }
@@ -65,7 +65,7 @@
   a {
     display: block;
   }
-  
+
   img {
     max-height: 50px;
     width: auto;
@@ -76,20 +76,20 @@
   flex: 1;
   max-width: 500px;
   display: flex;
-  
+
   input {
     flex: 1;
     padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
     font-size: 14px;
-    
+
     &:focus {
       outline: none;
       border-color: #1100ff;
     }
   }
-  
+
   button {
     display: flex;
     align-items: center;
@@ -101,7 +101,7 @@
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: background 0.2s;
-    
+
     &:hover {
       background: #1100ff;
     }
@@ -109,9 +109,9 @@
 }
 
 .search__icon {
-  width: 20px;  
+  width: 20px;
   height: 20px;
-  stroke: #9CA3AF;
+  stroke: #9ca3af;
 }
 
 .header__actions {
@@ -126,7 +126,7 @@
   justify-content: center;
   cursor: pointer;
   transition: opacity 0.2s;
-  
+
   &:hover {
     opacity: 0.7;
   }
@@ -135,7 +135,7 @@
 .action__icon {
   width: 24px;
   height: 24px;
-  color: #9CA3AF;
+  color: #9ca3af;
   stroke: currentColor;
   stroke-width: 1.5;
   fill: none;
@@ -146,7 +146,7 @@
   background: #f5f5f5;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
-  
+
   &-inner {
     display: flex;
     justify-content: center;
@@ -159,7 +159,7 @@
   margin: 0;
   padding: 0;
   gap: 32px;
-  
+
   li a {
     display: block;
     padding: 12px 0;
@@ -167,7 +167,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
-    
+
     &:hover {
       color: #1100ff;
     }
@@ -177,24 +177,23 @@
     color: #1100ff;
     font-weight: 700;
   }
-  
+
   @media (max-width: 768px) {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    
+
     li a {
       padding: 8px 0;
       font-size: 12px;
     }
   }
 
-  
   @media (max-width: 768px) {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    
+
     li a {
       padding: 8px 0;
       font-size: 14px;
@@ -208,7 +207,7 @@
     width: 100%;
     max-width: none;
   }
-  
+
   .header__actions {
     width: 100%;
     justify-content: center;

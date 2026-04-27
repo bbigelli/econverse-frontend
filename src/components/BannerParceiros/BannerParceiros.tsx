@@ -7,12 +7,10 @@ const BannerParcel: React.FC = () => (
       <article className="banners__card banners__card--apple">
         <div className="banners__card-content">
           <div className="banners__card-text">
-            <h3 className="banners__card-title">
-              Parceiros
-            </h3>
+            <h3 className="banners__card-title">Parceiros</h3>
             <p className="banners__card-sub">
-              Produtos originais com garantia<br />
-              e suporte certificado
+              Produtos originais com garantia
+              <br />e suporte certificado
             </p>
             <button className="banners__card-btn">Confira</button>
           </div>
@@ -22,15 +20,13 @@ const BannerParcel: React.FC = () => (
       <article className="banners__card banners__card--apple">
         <div className="banners__card-content">
           <div className="banners__card-text">
-            <h3 className="banners__card-title">
-              Parceiros
-            </h3>
+            <h3 className="banners__card-title">Parceiros</h3>
             <p className="banners__card-sub">
-              Produtos originais com garantia<br />
-              e suporte certificado
+              Produtos originais com garantia
+              <br />e suporte certificado
             </p>
             <button className="banners__card-btn">Confira</button>
-          </div>          
+          </div>
         </div>
       </article>
     </div>

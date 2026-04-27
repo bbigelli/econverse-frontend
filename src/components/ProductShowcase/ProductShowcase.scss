@@ -7,9 +7,35 @@
 
   & + & { border-top: 6px solid $off-white; }
 
+  &--dark {
+    background: #12172b;
+    .showcase__title   { color: $white; }
+    .showcase__subtitle{ color: rgba($white,.55); }
+  }
+
   &__header {
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  &__view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 8px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-dark;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: $white;
+    margin-top: 12px;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
   }
 
   &__subtitle {
@@ -24,7 +50,7 @@
   &__title {
     font-size: 22px;
     font-weight: 800;
-    color: $text-dark;
+    color: $blue;
   }
 
   &__layout {
@@ -35,10 +61,7 @@
     }
   }
 
-  &__carousel-wrap { 
-    flex: 1; 
-    min-width: 0; 
-  }
+  &__carousel-wrap { flex: 1; min-width: 0; }
 
   &__sidebar {
     flex-shrink: 0;
@@ -88,7 +111,7 @@
 
   &__sidebar-desc {
     font-size: 12px;
-    color: rgba($white, .7);
+    color: rgba($white,.7);
     margin-bottom: 20px;
     line-height: 1.5;
   }
@@ -102,6 +125,8 @@
     border-radius: 4px;
     width: fit-content;
     transition: background .2s;
+    border: none;
+    cursor: pointer;
     
     &:hover { 
       background: color.adjust($yellow, $lightness: -8%); 
@@ -113,9 +138,16 @@
     padding: 40px 0;
     font-size: 14px;
     color: $text-mid;
-    
-    &--error { 
-      color: #e53e3e; 
+    &--error { color: #e53e3e; }
+  }
+}
+
+// Responsivo
+@media (max-width: 768px) {
+  .showcase {
+    &__view-all {
+      padding: 6px 20px;
+      font-size: 12px;
     }
   }
 }

@@ -17,7 +17,9 @@ const CategoryTabs: React.FC<Props> = ({ active, onChange }) => (
         className={`ctabs__item${active === t ? ' ctabs__item--active' : ''}`}
         onClick={() => onChange(t)}
         aria-pressed={active === t}
-      >{t}</button>
+      >
+        {t}
+      </button>
     ))}
   </nav>
 )

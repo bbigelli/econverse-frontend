@@ -1,28 +1,33 @@
 import React, { useState } from 'react'
 import { Product } from './types'
 import { useProducts } from './hooks/useProducts'
+import { CartProvider } from './contexts'
+import Cart from './components/Cart/Cart'
 
-import Header          from './components/Header/Header'
-import HeroBanner      from './components/HeroBanner/HeroBanner'
-import CategoryMenu    from './components/CategoryMenu/CategoryMenu'
+import Header from './components/Header/Header'
+import HeroBanner from './components/HeroBanner/HeroBanner'
+import CategoryMenu from './components/CategoryMenu/CategoryMenu'
 import ProductShowcase from './components/ProductShowcase/ProductShowcase'
-import BannerParcel    from './components/BannerParceiros/BannerParceiros'
-import BrandNav        from './components/BrandNav/BrandNav'
-import Newsletter      from './components/Newsletter/Newsletter'
-import Footer          from './components/Footer/Footer'
-import ProductModal    from './components/ProductModal/ProductModal'
+import BannerParcel from './components/BannerParceiros/BannerParceiros'
+import BrandNav from './components/BrandNav/BrandNav'
+import Newsletter from './components/Newsletter/Newsletter'
+import Footer from './components/Footer/Footer'
+import ProductModal from './components/ProductModal/ProductModal'
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const { products, loading, error } = useProducts()
   const [selected, setSelected] = useState<Product | null>(null)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
-  const open  = (p: Product) => setSelected(p)
-  const close = ()           => setSelected(null)
+  const openProduct = (p: Product) => setSelected(p)
+  const closeProduct = () => setSelected(null)
+  const openCart = () => setIsCartOpen(true)
+  const closeCart = () => setIsCartOpen(false)
 
   return (
     <>
-      {/* ── Cabeçalho ── */}
-      <Header />
+      {/* ── Cabeçalho com carrinho ── */}
+      <Header onCartClick={openCart} />
 
       <main>
         {/* ── Hero Banner Black Friday ── */}
@@ -34,25 +39,24 @@ const App: React.FC = () => {
         {/* ── Vitrine 1: Produtos relacionados com sidebar ── */}
         <ProductShowcase
           title="Produtos relacionados"
-          subtitle="EM OFERTA"
           products={products}
           loading={loading}
           error={error}
-          onProductClick={open}
+          onProductClick={openProduct}
           showSidebar
         />
 
         {/* ── Banners Parcelô ── */}
         <BannerParcel />
 
-        {/* ── Vitrine 2: Produtos relacionados (dark) ── */}
+        {/* ── Vitrine 2: Produtos relacionados ── */}
         <ProductShowcase
           title="Produtos relacionados"
           products={products}
           loading={loading}
           error={error}
-          onProductClick={open}
-          dark
+          onProductClick={openProduct}
+          showViewAll={true}
         />
 
         {/* ── Banners Parcelô (repetição) ── */}
@@ -64,11 +68,11 @@ const App: React.FC = () => {
         {/* ── Vitrine 3: Produtos relacionados (celular) ── */}
         <ProductShowcase
           title="Produtos relacionados"
-          subtitle="CELULAR"
           products={products}
           loading={loading}
           error={error}
-          onProductClick={open}
+          onProductClick={openProduct}
+          showViewAll={true}
         />
 
         {/* ── Newsletter ── */}
@@ -79,8 +83,19 @@ const App: React.FC = () => {
       <Footer />
 
       {/* ── Modal de produto ── */}
-      <ProductModal product={selected} onClose={close} />
+      <ProductModal product={selected} onClose={closeProduct} />
+
+      {/* ── Carrinho de compras ── */}
+      <Cart isOpen={isCartOpen} onClose={closeCart} />
     </>
+  )
+}
+
+const App: React.FC = () => {
+  return (
+    <CartProvider>
+      <AppContent />
+    </CartProvider>
   )
 }
 

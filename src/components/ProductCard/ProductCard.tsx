@@ -1,34 +1,48 @@
 import React from 'react'
 import { Product } from '../../types'
-import { fmt, oldPrice, installment } from '../../utils/format'
+import { useCart } from '../../contexts'
 import './ProductCard.scss'
 
-interface Props {
+interface ProductCardProps {
   product: Product
-  onClick: (p: Product) => void
-  dark?: boolean
+  onClick: (product: Product) => void
 }
 
-const ProductCard: React.FC<Props> = ({ product, onClick, dark }) => (
-  <article
-    className={`pcard${dark ? ' pcard--dark' : ''}`}
-    onClick={() => onClick(product)}
-    aria-label={product.productName}
-  >
-    <div className="pcard__img-wrap">
-      <img src={product.photo} alt={product.productName} loading="lazy" />
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
+  const { addItem } = useCart()
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    addItem(product)
+  }
+
+  // Formatadores de preço
+  const formatPrice = (price: number) => {
+    return price.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })
+  }
+
+  return (
+    <div className="pcard" onClick={() => onClick(product)}>
+      <div className="pcard__img-wrap">
+        <img src={product.photo} alt={product.productName} />
+      </div>
+      <h3 className="pcard__name">{product.productName}</h3>
+      <p className="pcard__description">{product.descriptionShort}</p>
+      <p className="pcard__price">R$ {formatPrice(product.price)}</p>
+      {product.installments && (
+        <p className="pcard__inst">
+          em até {product.installments.count}x de R$ {formatPrice(product.installments.value)}
+        </p>
+      )}
+      <p className="pcard__ship">Frete grátis</p>
+      <button className="pcard__btn" onClick={handleAddToCart}>
+        COMPRAR
+      </button>
     </div>
-    <p className="pcard__name">{product.descriptionShort}</p>
-    <p className="pcard__old"><s>{oldPrice(product.price)}</s></p>
-    <p className="pcard__price">{fmt(product.price)}</p>
-    <p className="pcard__inst">ou 2x de {installment(product.price)} sem juros</p>
-    <p className="pcard__ship">Frete grátis</p>
-    <button
-      className="pcard__btn"
-      onClick={e => { e.stopPropagation(); onClick(product) }}
-      aria-label={`Comprar ${product.productName}`}
-    >Comprar</button>
-  </article>
-)
+  )
+}
 
 export default ProductCard

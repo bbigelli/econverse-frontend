@@ -1,28 +1,55 @@
 @use 'sass:color';
 
 // ── Variables ──────────────────────────────────────────────
-$blue:        #1100ff;
-$blue-hover:  #1100ff;
-$yellow:      #FFD600;
-$dark-bg:     #2e2e50;
-$dark-card:   #16213e;
-$white:       #ffffff;
-$off-white:   #f5f5f5;
-$border:      #e0e0e0;
-$text-dark:   #222222;
-$text-mid:    #555555;
-$text-light:  #999999;
-$header-bg:   #1c1c2e;
-$font:        'Montserrat', sans-serif;
+$blue: #1100ff;
+$blue-hover: #1100ff;
+$yellow: #ffd600;
+$dark-bg: #271C47;
+$dark-card: #271C47;
+$white: #ffffff;
+$off-white: #f5f5f5;
+$border: #e0e0e0;
+$text-dark: #222222;
+$text-mid: #555555;
+$text-light: #999999;
+$header-bg: #1c1c2e;
+$font: 'Montserrat', sans-serif;
 
 // ── Reset ──────────────────────────────────────────────────
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body { font-family: $font; background: $off-white; color: $text-dark; -webkit-font-smoothing: antialiased; }
-img  { max-width: 100%; display: block; }
-button { font-family: $font; cursor: pointer; border: none; background: none; }
-ul { list-style: none; }
-a  { text-decoration: none; color: inherit; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $font;
+  background: $off-white;
+  color: $text-dark;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  font-family: $font;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 // ── Container ──────────────────────────────────────────────
 .container {
@@ -33,4 +60,6 @@ a  { text-decoration: none; color: inherit; }
 }
 
 // ── Section spacing ────────────────────────────────────────
-.section { padding: 32px 0; }
+.section {
+  padding: 32px 0;
+}

@@ -10,7 +10,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     color: $white;
-    @media (max-width: 640px) { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__card {
@@ -19,15 +21,13 @@
     position: relative;
     min-height: 160px;
 
-    
     &--apple {
       background-image: url('../../assets/images/AppleStore.png');
       background-size: cover;
       background-position: center;
-      
+
       position: relative;
-      
-      
+
       &::before {
         content: '';
         position: absolute;
@@ -50,14 +50,16 @@
       z-index: 1;
     }
 
-    &-text { z-index: 2; }
+    &-text {
+      z-index: 2;
+    }
 
     &-tag {
       font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: .1em;
-      color: rgba($white,.6);
+      letter-spacing: 0.1em;
+      color: rgba($white, 0.6);
       margin-bottom: 4px;
     }
 
@@ -72,7 +74,7 @@
 
     &-sub {
       font-size: 12px;
-      color: rgba($white,.7);
+      color: rgba($white, 0.7);
       margin-bottom: 16px;
     }
 
@@ -83,22 +85,24 @@
       font-weight: 700;
       padding: 8px 20px;
       border-radius: 4px;
-      transition: background .2s;
+      transition: background 0.2s;
       border: none;
       cursor: pointer;
-      
-      &:hover { 
-        background: color.adjust($yellow, $lightness: -8%); 
+
+      &:hover {
+        background: color.adjust($yellow, $lightness: -8%);
       }
     }
 
     &-img {
       flex-shrink: 0;
-      opacity: .85;
+      opacity: 0.85;
     }
   }
 
-  &__dollar { color: $yellow; }
+  &__dollar {
+    color: $yellow;
+  }
 
   &__mockup {
     width: 110px;
@@ -108,7 +112,7 @@
     border-radius: 6px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 
     &-screen {
       width: 80%;
@@ -121,11 +125,15 @@
     &-keys {
       width: 85%;
       height: 18px;
-      background: rgba($white,.06);
+      background: rgba($white, 0.06);
       margin: 0 auto;
       border-radius: 2px;
       background-image: repeating-linear-gradient(
-        90deg, rgba($white,.08) 0px, rgba($white,.08) 6px, transparent 6px, transparent 8px
+        90deg,
+        rgba($white, 0.08) 0px,
+        rgba($white, 0.08) 6px,
+        transparent 6px,
+        transparent 8px
       );
     }
   }

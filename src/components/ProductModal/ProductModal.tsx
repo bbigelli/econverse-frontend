@@ -1,40 +1,70 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { Product } from '../../types'
-import { fmt, oldPrice, installment } from '../../utils/format'
+import { useCart } from '../../contexts'
 import './ProductModal.scss'
 
-interface Props {
+interface ProductModalProps {
   product: Product | null
   onClose: () => void
 }
 
-const ProductModal: React.FC<Props> = ({ product, onClose }) => {
-  useEffect(() => {
-    if (!product) return
-    const h = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', h)
-    document.body.style.overflow = 'hidden'
-    return () => { document.removeEventListener('keydown', h); document.body.style.overflow = '' }
-  }, [product, onClose])
+const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
+  const { addItem } = useCart()
+  const [quantity, setQuantity] = useState(1)
 
   if (!product) return null
 
+  const formatPrice = (price: number) => {
+    return price.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })
+  }
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addItem(product)
+    }
+    onClose()
+  }
+
+  const increaseQuantity = () => setQuantity(prev => prev + 1)
+  const decreaseQuantity = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1))
+
   return (
-    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={product.productName}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
-        <button className="modal__close" onClick={onClose} aria-label="Fechar">✕</button>
-        <div className="modal__body">
-          <div className="modal__left">
+    <div className="product-modal-overlay" onClick={onClose}>
+      <div className="product-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="product-modal__close" onClick={onClose}>×</button>
+        
+        <div className="product-modal__content">
+          <div className="product-modal__image">
             <img src={product.photo} alt={product.productName} />
           </div>
-          <div className="modal__right">
-            <h2 className="modal__name">{product.productName}</h2>
-            <p className="modal__desc">{product.descriptionShort}</p>
-            <p className="modal__old"><s>{oldPrice(product.price)}</s></p>
-            <p className="modal__price">{fmt(product.price)}</p>
-            <p className="modal__inst">ou 2x de {installment(product.price)} sem juros</p>
-            <p className="modal__ship">Frete grátis</p>
-            <button className="modal__btn">Comprar</button>
+          
+          <div className="product-modal__info">
+            <h2 className="product-modal__title">{product.productName}</h2>
+            <p className="product-modal__description">{product.descriptionShort}</p>
+            
+            <p className="product-modal__price">R$ {formatPrice(product.price)}</p>
+            
+            {product.installments && (
+              <p className="product-modal__installments">
+                Em até {product.installments.count}x de R$ {formatPrice(product.installments.value)} sem juros
+              </p>
+            )}
+            
+            <div className="product-modal__quantity">
+              <span>Quantidade:</span>
+              <div className="product-modal__quantity-controls">
+                <button onClick={decreaseQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increaseQuantity}>+</button>
+              </div>
+            </div>
+            
+            <button className="product-modal__btn" onClick={handleAddToCart}>
+              COMPRAR
+            </button>
           </div>
         </div>
       </div>

@@ -30,12 +30,16 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 4 }) => {
         onClick={() => go(idx - 1)}
         disabled={idx === 0}
         aria-label="Anterior"
-      >&#8249;</button>
+      >
+        &#8249;
+      </button>
 
       <div className="carousel__viewport">
         <div className="carousel__track" ref={ref}>
           {children.map((child, i) => (
-            <div key={i} className="carousel__slide">{child}</div>
+            <div key={i} className="carousel__slide">
+              {child}
+            </div>
           ))}
         </div>
       </div>
@@ -45,7 +49,9 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 4 }) => {
         onClick={() => go(idx + 1)}
         disabled={idx >= max}
         aria-label="Próximo"
-      >&#8250;</button>
+      >
+        &#8250;
+      </button>
     </div>
   )
 }
