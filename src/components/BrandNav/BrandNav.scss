@@ -1,0 +1,76 @@
+.brands {
+  padding: 40px 0;
+  background: #f9f9f9;
+
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%; // Torna o botão um círculo
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: #4A90E2;
+      background: #f5f5f5;
+    }
+  }
+
+  &__logo {
+    max-width: 60px;
+    height: auto;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+// Responsivo para telas menores
+@media (max-width: 768px) {
+  .brands {
+    &__btn {
+      width: 80px;
+      height: 80px;
+      padding: 16px;
+    }
+
+    &__logo {
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
+}

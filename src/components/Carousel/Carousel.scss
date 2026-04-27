@@ -1,0 +1,41 @@
+@use '../../styles/global' as *;
+
+.carousel {
+  position: relative;
+  padding: 0 32px;
+
+  &__viewport { overflow: hidden; }
+
+  &__track {
+    display: flex;
+    gap: 16px;
+    transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+  }
+
+  &__slide {
+    flex: 0 0 calc(25% - 12px);
+    min-width: 0;
+    @media (max-width: 1024px) { flex: 0 0 calc(33.333% - 11px); }
+    @media (max-width: 768px)  { flex: 0 0 calc(50% - 8px); }
+    @media (max-width: 480px)  { flex: 0 0 100%; }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: $text-dark;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .2s;
+    z-index: 2;
+    &:hover:not(:disabled) { color: #1100ff; }
+    &:disabled { opacity: .25; cursor: not-allowed; }
+    &--left  { left: 0; }
+    &--right { right: 0; }
+  }
+}

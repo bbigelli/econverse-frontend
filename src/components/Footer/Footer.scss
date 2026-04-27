@@ -1,0 +1,114 @@
+@use '../../styles/global' as *;
+
+.footer {
+  background: $white;
+  color: $white;
+  padding-top: 48px;
+  margin-top: 40px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba($white, 0.1);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 16px;
+
+    &-img {
+      max-height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__brand-desc {
+    font-size: 13px;
+    color: rgba($text-dark, 0.7);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba($text-dark, 0.1);
+    border-radius: 50%;
+    transition: all 0.2s;
+    color: $text-dark;
+
+    &:hover {
+      background: $yellow;
+      color: $text-dark;
+      transform: translateY(-2px);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__col-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: $text-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__col-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__link {
+    color: rgba($text-dark, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  &__bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba($text-dark, 0.5);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

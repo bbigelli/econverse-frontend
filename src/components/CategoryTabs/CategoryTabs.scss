@@ -1,0 +1,28 @@
+@use 'sass:color';
+@use '../../styles/global' as *;
+
+.ctabs {
+  display: flex;
+  border: 1px solid $border;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  &__item {
+    flex: 1;
+    padding: 11px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: $text-mid;
+    border-right: 1px solid $border;
+    background: $off-white;
+    transition: background .2s, color .2s;
+    cursor: pointer;
+    &:last-child { border-right: none; }
+    &:hover:not(&--active) { background: color.adjust($off-white, $lightness: -3%); }
+    &--active { color: #1100ff; background: $white; font-weight: 800; }
+  }
+}
