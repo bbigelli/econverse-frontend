@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Product, ApiResponse } from '../types'
 
-// Usando o proxy para evitar CORS
-// O Vite vai redirecionar /api para https://app.econverse.com.br
-const API_URL = '/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json'
+
+const API_URL = 'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json'
 
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([])
@@ -26,7 +25,6 @@ export const useProducts = () => {
         const data: ApiResponse = await response.json()
         
         if (data.success && Array.isArray(data.products)) {
-          // Adiciona ID único para cada produto e parcelamento
           const productsWithId = data.products.map((product, index) => ({
             ...product,
             id: index + 1,
