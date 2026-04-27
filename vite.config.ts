@@ -7,9 +7,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // Usar a nova API do Sass (Dart Sass)
         api: 'modern',
-        // Silenciar warnings de depreciação
         silenceDeprecations: ['legacy-js-api'],
       },
     },
@@ -24,30 +22,25 @@ export default defineConfig({
         secure: true,
       }
     },
-    // Configuração para desenvolvimento
     port: 5173,
     open: true,
   },
   
   build: {
     outDir: 'dist',
-    sourcemap: false, // Desativar sourcemap em produção para reduzir tamanho
-    minify: 'terser', // Minificação mais agressiva
-    target: 'es2015', // Compatibilidade com navegadores mais antigos
+    sourcemap: false,
+    target: 'es2015',
     rollupOptions: {
       output: {
         manualChunks: {
-          // Separa bibliotecas em chunks separados
           'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
         },
-        // Otimização de chunks
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
-    // Otimização de build
-    assetsInlineLimit: 4096, // 4kb - inline small assets
+    assetsInlineLimit: 4096,
     cssCodeSplit: true,
     reportCompressedSize: true,
   },
@@ -64,18 +57,15 @@ export default defineConfig({
     },
   },
   
-  // Configuração para produção
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   },
   
-  // Otimizações gerais
   optimizeDeps: {
     include: ['react', 'react-dom'],
     exclude: [],
   },
   
-  // Configuração para preview
   preview: {
     port: 4173,
     open: true,
