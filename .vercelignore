@@ -1,0 +1,10 @@
+# .vercelignore
+node_modules/
+.git/
+README.md
+.eslintrc.json
+.prettierrc
+.vscode/
+*.log
+.env
+.env.local

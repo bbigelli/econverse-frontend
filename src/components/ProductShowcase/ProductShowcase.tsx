@@ -54,7 +54,7 @@ const ProductShowcase: React.FC<Props> = ({
             {!loading && !error && (
               <Carousel itemsPerView={showSidebar ? 3 : 4}>
                 {products.map((p, i) => (
-                  <ProductCard key={i} product={p} onClick={onProductClick} dark={dark} />
+                  <ProductCard key={i} product={p} onClick={onProductClick} />
                 ))}
               </Carousel>
             )}
