@@ -10,7 +10,7 @@
 
 Este é meu teste técnico para a vaga de **Desenvolvedor Front-End na Econverse**. Desenvolvi uma plataforma de e-commerce completa com vitrine de produtos, carrinho de compras com Context API, modal de detalhes, consumo de API real, vitrine de produtos, categorias, banner promocional, newsletter e um design totalmente responsivo.
 
-🔗 **Deploy:** [https://econverse-frontend.vercel.app]
+🔗 **Deploy:** [https://econverse-frontend-opal.vercel.app/]
 
 ### ✨ Funcionalidades Implementadas
 
@@ -38,13 +38,11 @@ Este é meu teste técnico para a vaga de **Desenvolvedor Front-End na Econverse
 
 ### Por que escolhi essas tecnologias?
 
-**React + TypeScript**: Escolhi TypeScript para garantir tipagem segura e evitar erros em tempo de desenvolvimento, especialmente importante em um projeto com múltiplos componentes.
-
 **Vite**: Optei pelo Vite em vez do CRA porque é significativamente mais rápido em desenvolvimento e build, além de ter melhor suporte para TypeScript.
 
 **Sass**: Utilizei Sass para poder usar variáveis, nesting e mixins, mantendo o CSS mais organizado e reutilizável.
 
-**Context API para o carrinho**: Decidi usar Context API em vez de Redux porque o estado é simples e global, sem necessidade de boilerplate excessivo. Isso mostra que sei escolher a ferramenta certa para o problema certo.
+**Context API para o carrinho**: Decidi usar Context API em vez de Redux porque o estado é simples e global, sem necessidade de boilerplate excessivo. 
 
 **Sem bibliotecas UI**: Todo o CSS é 100% customizado para seguir exatamente o layout do Figma.
 
